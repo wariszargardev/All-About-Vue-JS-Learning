@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 3 Fundamentals</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .strikeout{
+            color: red;
+        }
+        .highpriority{
+            background-color: yellow;
+        }
+        .static-class{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p v-for="(item, key) in items " :key="key" :class="{strikeout: item.quantity == 0, highpriority:item.highPriority }" class="static-class"> 
+              {{ item.label }}  
+            </p>
+        </div>
+
+        <div>
+            <p v-for="(item, key) in items " :key="key" :class="[
+            item.quantity == 0 ? 'strikeout class-2 class-3' : '',
+            item.highPriority ? 'highPriority' : '',
+            'static-class'
+            ]"> 
+              {{ item.label }}  
+            </p>
+        </div>
+
+        
+        <div>
+            <p v-for="(item, key) in items " :key="key" :class="[
+            {strikeout: item.quantity == 0},
+            {highpriority:item.highPriority},
+            'static-class'
+            ]"> 
+              {{ item.label }}  
+            </p>
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        {id: 1, label: "Item 1", quantity: 10, highPriority: true},
+                        {id: 2, label: "Item 2", quantity: 0, highPriority: false},
+                        {id: 3, label: "Item 3", quantity: 20, highPriority: false},
+                        {id: 4, label: "Item 4", quantity: 15, highPriority: true},
+                        {id: 5, label: "Item 5", quantity: 0, highPriority: true},
+                        {id: 6, label: "Item 6", quantity: 10, highPriority: false},
+                        {id: 7, label: "Item 7", quantity: 0, highPriority: true},
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
