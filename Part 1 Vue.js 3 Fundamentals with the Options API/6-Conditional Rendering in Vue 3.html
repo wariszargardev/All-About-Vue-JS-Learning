@@ -12,19 +12,22 @@
         <button @click="addNewItem">Add item</button>
         <p>
             {{ newItem }}
-        <ul>
+        </p>
+        <p v-if="items.length == 0">No items found </p>
+        <ul v-else>
             <li v-for="(item, key) in items" :key="key"> {{ item }} </li>
         </ul>
+      
+
+        <!-- Another option for conditionally displaying an element is the v-show directive. The usage is largely the same -->
+        <!-- The difference is that an element with v-show will always be rendered and remain in the DOM; v-show only toggles the display CSS property of the element. -->
+
     </div>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    items: [
-                        'first item',
-                        'second item',
-                        'third item'
-                    ],
+                    items: [],
                     newItem: "",
                 }
             },
