@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 3 Fundamentals</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input v-model="newItem" placeholder="Add an item"  />
+
+        <br />
+        <label>
+            <input type="radio" v-model="newPriorityItem" value="low" />
+            Low
+        </label>
+        <label>
+            <input type="radio" v-model="newPriorityItem" value="high" />
+            High
+        </label>
+        <br />
+
+        <div>
+            <label>
+                <input type="checkbox" v-model="selectedCheckbox" value="apple" /> Apple
+            </label>
+            <label>
+                <input type="checkbox" v-model="selectedCheckbox" value="banana" /> Banana
+            </label>
+            <label>
+                <input type="checkbox" v-model="selectedCheckbox" value="mango" /> Mango
+            </label>
+        </div>
+        <p>
+            {{ newItem }} - {{ newPriorityItem.toLocaleUpperCase() }}
+            <br />
+            {{ selectedCheckbox }}
+        </p>
+        <ul>
+            <li v-for="(item, key) in items" :key="key"> {{ item }} </li>
+        </ul>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        'first item',
+                        'second item',
+                        'third item'
+                    ],
+                    newItem: "",
+                    newPriorityItem: 'low',
+                    selectedCheckbox: []
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>

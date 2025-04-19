@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 3 Fundamentals</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <input v-model="message" />
+        <div v-for="user of users" :key="user.id">
+            <h3> id {{ user.id }} name {{ user.name }}  - age {{ user.age }} </h3>
+        </div>
+
+        <div v-for="{id, name, age} in users" :key="id">
+            <h3> name {{ name }}  - age {{ age }} </h3>
+        </div>
+
+        <div v-for="(user, key) of users" :key="key">
+            <h3> Key {{ key }} name {{ user.name }}  - age {{ user.age }} </h3>
+        </div>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'Hello World',
+                    users: [
+                        { id: 1, name: 'John', age: 20 },
+                        { id: 2, name: 'Jane', age: 21 },
+                        { id: 3, name: 'Jim', age: 22 },
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
