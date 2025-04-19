@@ -10,12 +10,17 @@
     <div id="app">
         <h1>{{ message }}</h1>
         <input v-model="message" />
+        <p>Name: {{ name }}</p>
+        <p>Age: {{ age ? age : 'Unknown' }}</p>
+        <p>Age: {{ age || 'Unknown' }}</p>
+
     </div>
     <script>
         const app = Vue.createApp({
             data() {
                 return {
-                    message: 'Hello World'
+                    message: 'Hello World',
+                    name: 'Waris',
                 }
             }
         })
