@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 3 Fundamentals</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h6>Computed Properties</h6>
+        <p>Computed properties are properties that are derived from other properties. They are cached based on their dependencies.</p>
+        <p>When we need to change presentational data based on other data, we use computed properties.</p>
+
+        <input type="text" v-model="firstName" placeholder="First Name" />
+        <input type="text" v-model="lastName" placeholder="Last Name" />
+        <input type="text" v-model="age" placeholder="Age" />
+
+        <p>Full Name: {{ fullName }}</p>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    firstName: '',
+                    lastName: '',
+                    age: 30,
+                    x: 10,
+                    y: 20
+                }
+            },
+            computed: {
+                fullName() {
+                    // Computed property will call once used properties changes
+                    return this.firstName + ' ' + this.lastName + ' '
+                },
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
