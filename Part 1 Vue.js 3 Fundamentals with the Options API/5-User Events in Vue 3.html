@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js 3 Fundamentals</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input @keyup.enter="addNewItem" v-model="newItem" placeholder="Add an item"  />
+        <button @click="addNewItem">Add item</button>
+        <p>
+            {{ newItem }}
+        <ul>
+            <li v-for="(item, key) in items" :key="key"> {{ item }} </li>
+        </ul>
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    items: [
+                        'first item',
+                        'second item',
+                        'third item'
+                    ],
+                    newItem: "",
+                }
+            },
+            methods: {
+                addNewItem(){
+                    if (this.newItem.trim() ==""){
+                        alert("please add item")
+                        return
+                    }
+                    this.items.push(this.newItem)
+                    this.newItem=''
+                }
+            },
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
