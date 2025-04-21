@@ -2,6 +2,8 @@
 import ClickCounter from './components/ClickCounter.vue'
 import PlanComponent from './components/PlanComponent.vue'
 import PlanPicker from './components/PlanPicker.vue'
+import PostListing from './components/ChildtoParent/Lisitng.vue'
+
 
 const plans = [
   {
@@ -20,6 +22,11 @@ const plans = [
 </script>
 
 <template>
+  <h1>Pass Data from Child to Parent</h1>
+  <br />
+  <br />
+  <PostListing />
+
   <h1>Hello World</h1>
 
   <PlanPicker />
@@ -41,6 +48,10 @@ const plans = [
   <br />
   
   <PlanPicker />
+
+  <br />
+  <br />
+
 </template>
 
 <style scoped>
