@@ -1,6 +1,7 @@
 <script setup>
 import ClickCounter from './components/ClickCounter.vue'
 import PlanComponent from './components/PlanComponent.vue'
+import PlanPicker from './components/PlanPicker.vue'
 
 const plans = [
   {
@@ -20,8 +21,10 @@ const plans = [
 
 <template>
   <h1>Hello World</h1>
+
+  <PlanPicker />
   <ClickCounter />
-  
+
   <br />
   <br />
 
@@ -34,6 +37,10 @@ const plans = [
 
   <PlanComponent v-for="(plan, index) in plans" :name="plan.name" :key="index" />
 
+  <br />
+  <br />
+  
+  <PlanPicker />
 </template>
 
 <style scoped>
