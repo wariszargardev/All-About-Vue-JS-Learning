@@ -1,8 +1,17 @@
 <script setup>
 const props = defineProps(
-    [
-        'name'
-    ]
+    // [
+    //     'name'
+    // ]
+    {
+        name: {
+            // type: Array,
+            type: {
+                type: Array,
+                required: true,
+            }
+        },
+    }
 );
 </script>
 
